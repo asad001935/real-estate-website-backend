@@ -16,19 +16,24 @@ const allowedOrigins = [
   'https://real-estate-website-frontend-brown.vercel.app',
 ];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
-    credentials: true, 
-  })
-);
+app.use(cors({
+  origin: '*', 
+}));
+
+
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.indexOf(origin) === -1) {
+//         const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
+//         return callback(new Error(msg), false);
+//       }
+//       return callback(null, true);
+//     },
+//     credentials: true, 
+//   })
+// );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
