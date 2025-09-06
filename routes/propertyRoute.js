@@ -8,9 +8,9 @@ const { createProperty, deleteProperty, getOneProperty, getPropertyList, editPro
 
 
 router.post("/createProperty", verifyToken, isAdmin, createProperty);
-router.get("/getProperty/:id", verifyToken, isAdmin, getOneProperty);
+router.get("/getProperty/:id", isAdmin, getOneProperty);
 router.delete("/deleteProperty/:id", verifyToken, isAdmin, deleteProperty);
-router.get("/getAllProperty", verifyToken, getPropertyList);
+router.get("/getAllProperty", getPropertyList);
 router.put("/editProperty/:id", verifyToken, isAdmin, editProperty);
 router.get("/getFeatured", getFeatured)
 
